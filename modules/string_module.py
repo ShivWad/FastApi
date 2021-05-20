@@ -2,7 +2,9 @@ import string
 import random
 from fastapi import FastAPI, HTTPException
 
-# Generating Random string of n length and 
+# Generating Random string of n length starting with given character
+
+
 def generateRandom(input_Char, n):
     if len(input_Char) > 1:
         raise HTTPException(status_code=404, detail="length of input should be equal to 1", headers={
@@ -19,18 +21,29 @@ def generateRandom(input_Char, n):
 
 app = FastAPI()
 
+## index
+
 
 @app.get('/')
 def index():
-    return {'For RandomNumber': '/genrateString/{input_Char}/{n}', 'For Calculate Length': '/calculatelength/{input_string}'}
+    return {'For RandomNumber': '/genrateString/{input_Char}/{n}',
+            'For Calculate Length': '/calculatelength/{input_string}'}
 
 
 @app.get('/calculatelength/{input_string}')
 def calcLengh(input_string):
+    """
+    Arguments ---> string \n
+    Calculating length of given string
+    """
     return {input_string: len(input_string)}
 
 
 @app.get('/genrateString/{input_Char}/{n}')
 def getRandomString(input_Char, n: int):
+    """
+    Arguments ---> Charcter, Length = int \n
+    Generates a random string of given lengthstarting with given character
+    """
     generatedString = generateRandom(input_Char=input_Char, n=n)
     return {input_Char: {n: generatedString}}
