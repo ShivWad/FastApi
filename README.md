@@ -1,6 +1,8 @@
 # FastApi
 FastApi app, deployed on streamlit
 
+##Use python 3.6.13
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install requirements
