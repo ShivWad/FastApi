@@ -1,7 +1,7 @@
 # FastApi
 FastApi app, deployed on streamlit
 
-##Use python 3.6.13
+#Use python 3.6 only
 
 ## Installation
 
